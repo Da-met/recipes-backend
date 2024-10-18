@@ -68,7 +68,7 @@ export const login = async (req, res) => {
     } catch (err) {
         console.log(err)
         res.status(500).json({
-            message: 'Не удлось зарегистрироваться!'
+            message: 'Не удалось зарегистрироваться!'
         });
     }
 };
