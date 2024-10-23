@@ -30,8 +30,9 @@ export const create = async (req, res) => {
 
 export const getAll = async (req, res) => {
     try {
-        const recipes = await RecipeModel.find().populate({ path: "user", select: ["fullName", "avatarUrl"] }).exec();
-        res.json(recipes.reverse());
+        res.json('HELLO YO');
+        // const recipes = await RecipeModel.find().populate({ path: "user", select: ["fullName", "avatarUrl"] }).exec();
+        // res.json(recipes.reverse());
     } catch (err) {
         console.log(err)
         res.status(500).json({
