@@ -94,9 +94,11 @@ app.get('/comments-every', CommentController.getEvery);
 app.delete('/comment/:id', CommentController.remove);
 app.delete('/comments/:id', CommentController.removeAll);
 
-console.log(process) 
+// console.log(process) 
+const PORT = process.env.PORT || 3333;
 
-app.listen( 3333 , (err) => {
+
+app.listen( PORT , (err) => {
     if(err) {
         return console.log(err);
     }
