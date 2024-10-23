@@ -7,11 +7,12 @@ import { handleValidationErrors, checkAuth } from './utils/index.js';
 import { UserController, RecipeController, CommentController, SaveRecipesController, UserBlockController, SubscriptionsController } from './controllers/index.js';
 import SaveRecipes from './models/SaveRecipes.js';
 
-
+const URI = 'mongodb+srv://Da-met:matrena@base-recipes.30apu4f.mongodb.net/repicers?retryWrites=true&w=majority';
 
 mongoose
     // .connect('mongodb+srv://Da-met:matrena@base-recipes.30apu4f.mongodb.net/repicers?retryWrites=true&w=majority')
     .connect(process.env.MONGODB_URI)
+    .connect(URI)
 
     .then(() => console.log('DB OK'))
     .catch((err) => console.log('DB ERROR', err));
@@ -92,9 +93,9 @@ app.get('/comments-every', CommentController.getEvery);
 app.delete('/comment/:id', CommentController.remove);
 app.delete('/comments/:id', CommentController.removeAll);
 
+console.log(process.env) 
 
-
-app.listen(process.env.MONGODB_URI || 3333, (err) => {
+app.listen(URI || 3333, (err) => {
     if(err) {
         return console.log(err);
     }
