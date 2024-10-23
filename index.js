@@ -96,7 +96,7 @@ app.delete('/comments/:id', CommentController.removeAll);
 
 console.log(process) 
 
-app.listen(process.env.MONGODB_URI || 3333, (err) => {
+app.listen(process.env.MONGODB_URI , (err) => {
     if(err) {
         return console.log(err);
     }
