@@ -10,7 +10,9 @@ import SaveRecipes from './models/SaveRecipes.js';
 
 
 mongoose
-    .connect('mongodb+srv://Da-met:matrena@base-recipes.30apu4f.mongodb.net/repicers?retryWrites=true&w=majority')
+    // .connect('mongodb+srv://Da-met:matrena@base-recipes.30apu4f.mongodb.net/repicers?retryWrites=true&w=majority')
+    .connect(process.env.MONGODB_URI)
+
     .then(() => console.log('DB OK'))
     .catch((err) => console.log('DB ERROR', err));
 
@@ -92,7 +94,7 @@ app.delete('/comments/:id', CommentController.removeAll);
 
 
 
-app.listen(3333, (err) => {
+app.listen(process.env.MONGODB_URI || 3333, (err) => {
     if(err) {
         return console.log(err);
     }
