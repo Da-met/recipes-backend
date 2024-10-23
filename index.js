@@ -94,9 +94,9 @@ app.get('/comments-every', CommentController.getEvery);
 app.delete('/comment/:id', CommentController.remove);
 app.delete('/comments/:id', CommentController.removeAll);
 
-console.log(process.env) 
+// console.log(process.env) 
 
-app.listen(URI || 3333, (err) => {
+app.listen(process.env.MONGODB_URI || 3333, (err) => {
     if(err) {
         return console.log(err);
     }
