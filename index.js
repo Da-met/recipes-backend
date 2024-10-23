@@ -8,13 +8,12 @@ import { UserController, RecipeController, CommentController, SaveRecipesControl
 import SaveRecipes from './models/SaveRecipes.js';
 
 // const URI = 'mongodb+srv://Da-met:matrena@base-recipes.30apu4f.mongodb.net/repicers?retryWrites=true&w=majority';
-const URI = 'mongodb+srv://Da-met:matrena@base-recipes.30apu4f.mongodb.net/?retryWrites=true&w=majority&appName=Base-RECIPES';
+// const URI = 'mongodb+srv://Da-met:matrena@base-recipes.30apu4f.mongodb.net/?retryWrites=true&w=majority&appName=Base-RECIPES';
 
 
 mongoose
     // .connect('mongodb+srv://Da-met:matrena@base-recipes.30apu4f.mongodb.net/repicers?retryWrites=true&w=majority')
     .connect(process.env.MONGODB_URI)
-    .connect(URI)
 
     .then(() => console.log('DB OK'))
     .catch((err) => console.log('DB ERROR', err));
